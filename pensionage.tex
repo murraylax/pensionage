@@ -1,0 +1,230 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{fancyheadings}
+\usepackage{grffile}
+\usepackage[round]{natbib}
+\usepackage{subcaption}
+
+\usepackage{siunitx}
+\sisetup{input-symbols=(), group-digits  = false}
+ 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{rotating}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+
+\setlength{\voffset}{-0.25in}
+\setlength{\topmargin}{0pt}
+\setlength{\hoffset}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{.4in}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\footskip}{.1in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.25in}
+\setlength{\parskip}{0pc}
+
+\renewcommand{\baselinestretch}{1.6}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\prbf}[1]{\textbf{#1}}
+\newcommand{\prit}[1]{\textit{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\script}[1]{\begin{cal}#1\end{cal}}
+\newcommand{\citee}[1]{\citet{#1}}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\app}
+{
+\appendix
+}
+
+\newcommand{\appsection}[1]
+{
+\section{#1}
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+\setcounter{equation}{0}
+}
+
+
+\pagestyle{fancyplain}
+\lhead{}
+\chead{Pensionable Age Mumbo Jumbo}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{singlespace}
+\title{Pensionable Age Mumbo Jumbo}
+\date{\today}
+\author{
+Mary Hamman\footnote{\textit{Mailing address}: 1725 State St., La Crosse, WI  54601. \newline  \textit{E-mail}: hmamman@uwlax.edu.}\\Department of Economics\\University of Wisconsin - La Crosse
+\and 
+James Murray\footnote{\textit{Mailing address}: 1725 State St., La Crosse, WI  54601. \textit{Phone}: (608)406-4068.\newline  \textit{E-mail}: jmurray@uwlax.edu.}\\Department of Economics\\University of Wisconsin - La Crosse
+\and \ \\
+Other People Who Know What They Are Doing\\
+}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\abstract{This is a bunch of math about how employers react when there is a change in policy concerning pensionable age for employees. Much of these mathematical details should be put in an appendix.}\\
+
+\noindent \textit{Keywords}: Math, economics, pension \\
+\noindent \textit{JEL classification}: A1
+
+\end{singlespace}
+\end{titlepage}
+
+\section{Model}
+
+\subsection{Framework}
+Firms employ workers of two generations, denoted as ``young'' and ``old'', and produce a final good according to the production function,
+\beq y_{it} =  f\left( L_{Y,it}, L_{O,it}, z_t, \xi_{it} \right), \eeq
+where $y_{it}$ is the output of firm $i$ at time $t$, $L_{Y,it}$ is firm $i$'s time $t$ employment of people in the young generation, $L_{O,it}$ is the same firm's time $t$ employment of people in the old generation, $z_t$ is an economy-wide total factor productivity shock, and $\xi_{it}$ is a firm-specific total factor productivity shock. Workers in the young and old generation may have different levels of productivity, which we explore below. We assume that marginal products are always positive and that production exhibits diminishing returns so that $f_Y>0$, $f_O>0$, $f_{YY}<0$, $f_{OO}<0$. Furthermore, we suppose that additional younger workers reduces the marginal product for old workers as well as young workers (or, equivalently, that additional older workers reduced the marginal product of younger workers), so that $f_{YO}<0$
+
+Firms have the power to choose their demand for workers in the young generation. Workers in the young generation age gradually into the old generation. Some workers may decide to retire when they transition to the old generation, but workers who wish to remain employed are permitted to do so. Age discrimination laws limit firm's ability to dismiss older workers or adjust their wages. We also assume a thin labor market for older workers prevents employers from hiring older workers from outside the firm. Firms' employment of workers in the older generation therefore depends on workers' individual retirement decisions as well as the proportion of the young generation that transitions to the old generation.
+
+Should firms have different wishes on the numbers of workers from the old generation to employ, they may attempt to influence employees' retirement decisions. If firms want to keep a larger number of older employees, they may enact policies that make continued employment more desirable, such continued professional development activities or enhanced work-life balance flexibility. If firms want to keep a smaller number of older workers, they may further incentivize retirement by providing additional retirement. There are costs to the firm for attempts in either direction to influence retirement decisions.
+
+The number of old workers that remain employed evolves from the number of young workers in the previous period according to,
+\beq \label{eq:gen} L_{O,i,t+1} = \delta_t \gamma_{it} \left( \eta^Y_{it}  L_{Y,it} + \eta^Y_{it} L_{o,it} \right). \eeq
+
+The variable $\delta_t$ represents economy-wide factors that influence workers' retirement decisions, including government policy on eligible age to receive government pension. Again, firms take $\delta_t$ as given in their decision making.
+
+The time-varying, firm-specific, variable $\eta^Y_{it}$ is related to the age composition of the young workers in the firm. It is the proportion of young workers in period $t$ that become old and therefore make a retirement decision. To illustrate with a simple example, suppose young workers' ages are uniformly distributed from 20-59, and workers enter the old generation at the 60th birthday. With 40 different possible ages in the range 20-59 and a uniform distribution, exactly 1/40 of the young workers are each possible age. In this case, $\eta_{it} = 1 / 40 = 0.025$, for all $t$. In a more realistic setting, $\eta_{it}^Y$ will be time-varying depending on the distribution of ages among the young generation. Similarly, $\eta_{it}^O$ captures the time-varying distributions of ages of old workers in the firm. The fraction $\eta_{it}^O$ of old workers continue to stay on to period $t+1$, unless affected by firm influences captured by $\gamma_{it}$ or economy-wide influences, captured by $\delta_{t}$. Age discrimination laws prevent firms from trying to influence $\eta^Y_{it}$ or $\eta^O_{it}$ through their hiring decisions, so firms take these variables as given.
+
+Finally, $\gamma_{it}$, represents firm $i$'s decisions to alter workers' incentives to retire. If the firm decides not to influence retirement behavior, then $\gamma_{it}=1$. If the firm gives financial incentives for early retirement, then $\gamma_{it}<1$. If firms enact policies to encourage continued employment for workers in the old generation, then $\gamma_{it}>1$.
+
+Attempts to influence workers retirement decisions comes at a cost, $c(\gamma)$, where $c(1)=0$, $c'(1)=0$, and $c''(\gamma)>0$ for all $\gamma$. Under these conditions, there is no cost to doing nothing to influence workers' retirement decisions. These conditions also imply $c'(\gamma)<0$ when $\gamma<1$ and $c'(\gamma)>0$ when $\gamma>1$, which means that costs increase at an increasing rate as $\gamma$ moves away from one in either direction.
+
+In each period $t$, firms choose $L_{Y,it}$ and $\gamma_{it}$ to maximize the expected net present value of lifetime profits,
+\beq \sum_{\tau=0}^{\infty} \zeta^{\tau} \left\{ p_t f\left( L_{Y,i,t+\tau}, L_{O,i,t+\tau}, z_{t+\tau}, \xi_{i,t+\tau} \right) - w_{Y,t+\tau} L_{Y,i,t+\tau} - w_{O,i,t+\tau} L_{O,i,t+\tau} - c(\gamma_{i,t+\tau}) \right\}, \eeq
+subject to the evolution of workers given in equation (\ref{eq:gen}).
+
+\subsection{Profit Maximizing Decisions}
+  
+Let $\lambda_{it}$ denote the Lagrangian multiplier on the constraint, equation (\ref{eq:gen}), the shadow price for an additional unit of labor from the old generation. The Lagrangian objective becomes,
+\beq
+\begin{array}{ll}
+  \ds \mathscr{L} = & \ds E_t \sum_{\tau=0}^{\infty} \zeta^{\tau} \left\{ p_{t+\tau} f\left( L_{Y,i,t+\tau}, L_{O,i,t+\tau}, z_{t+\tau}, \xi_{i,t+\tau} \right) \right. \\ [0.5pc]
+  & \ds - w_{Y,t+\tau} L_{Y,i,t+\tau} - w_{O,i,t+\tau} L_{O,i,t+\tau} - c(\gamma_{i,t+\tau}) \\ [0.5pc]
+  & \ds \left. - \lambda_{i,t+\tau} \left[ L_{O,i,t+\tau+1} - \delta_{t+\tau} \gamma_{i,t+\tau} \left( \eta^Y_{i,t+\tau} L_{Y,i,t+\tau} +  \eta^O_{i,t+\tau} L_{O,i,t+\tau} \right) \right] \right\},
+\end{array}
+\eeq
+
+Firm $i$'s profit maximizing decisions are determined by the following first order conditions,
+
+\beq \label{eq:focLY} \frac{\partial \mathscr{L}}{\partial L_{y,it}} = p_t MP_{Y,it} - w_{Y,t} + \lambda_{it} \delta_t \gamma_{it} \eta^Y_{it} = 0 \eeq
+\beq \label{eq:focLO} \frac{\partial \mathscr{L}}{\partial L_{y,O,t+1}} = \zeta E_t \left( p_{t+1} MP_{O,i,t+1} - w_{O,t+1} \right) - \lambda_{it} = 0 \eeq
+\beq \label{eq:focgamma} \frac{\partial \mathscr{L}}{\partial \gamma_{it}} = -c'(\gamma_{it}) + \lambda_{it} \delta_{t} \left( \eta^Y_{it} L_{Y,it} +  \eta^O_{it} L_{O,it} \right)= 0 \eeq
+\beq \label{eq:foclambda} \frac{\partial \mathscr{L}}{\partial \lambda_{it}} = L_{O,i,t+1} - \delta_t \gamma_{it} \left( \eta^Y_{it} L_{Y,it} +  \eta^O_{it} L_{O,it} \right)= 0, \eeq
+
+\noindent where $MP_{Y,it}$ and $MP_{O,it}$ denote the marginal products of labor for the young and old generations, respectively, and $w_{Y,it}$ and $w_{O,it}$ denote the wages paid to the young and old generations, respectively. We assume that firms do not have market power over wages, so firms take $w_{Y,it}$ and $w_{O,it}$ as given. The marginal products of labor are given by,
+
+\beq \label{eq:MPY} MP_{Y,it} = \frac{\partial}{\partial L_{Y,it}} f\left(L_{Y,i,t+\tau}, L_{O,i,t+\tau}, z_t, \xi_{i,t+\tau} \right) \eeq
+\beq \label{eq:MPO} MP_{O,it} = \frac{\partial}{\partial L_{O,it}} f\left(L_{Y,i,t+\tau}, L_{O,i,t+\tau}, z_t, \xi_{i,t+\tau} \right).  \eeq
+
+Solving the first-order condition for $\gamma_{it}$, equation (\ref{eq:focgamma}), for the Lagrange multiplier yields,
+
+\beq \label{eq:lambda} \lambda_{it} = \frac{c'(\gamma_{it})}{\delta_{t} \left( \eta^Y_{it} L_{Y,it} +  \eta^O_{it} L_{O,it} \right) } \eeq
+
+The denominator in equation \ref{eq:lambda} is always positive, and the sign on the numerator depends on the choice for $\gamma_{it}$. The equation demonstrates that firms decide to incentive early retirement, setting $\gamma_{it}<1$ and therefore causing $c'(\gamma_{it})<0$, when $\lambda_{it}<0$, i.e. when the marginal benefit of an additional worker in the older generation is negative. Similarly, firms choose to encourage continued employment of older workers, setting $\gamma_{it}>1$, when $\lambda_{it}>0$, i.e. when the marginal benefit of an additional worker in the older generation is positive.
+
+Substituting (\ref{eq:lambda}) into the first order condition for $L_{Y,it}$, equation (\ref{eq:focLY}), yields,
+
+\beq \label{eq:wMPY} w_{Y,t} - p_t MP_{Y,it} = \frac{\gamma_{it} \eta_{it}^Y c'(\gamma_{it})}{\eta_{it}^Y L_{Y,it} + \eta_{it}^O L_{O,it}} \eeq
+
+The left-side of equation (\ref{eq:wMPY}) is equal to zero when workers are paid exactly their marginal product of labor. The right-side of the equation is equal to zero when $\gamma_{it}=1$, i.e. with firms choose not to influence workers' retirement decisions. Firms hire more workers, driving down the marginal product of labor, and driving up a positive wedge between the wage and the marginal product of labor, when simultaneously choosing $\gamma_{it}>1$, that is when also finding it beneficial to incur additional costs to encourage continued employment as workers age. We will see below, that this coincides with the situation when the marginal product of older workers exceeds their wage.
+
+Similarly, equation (\ref{eq:wMPY}) demonstrates that younger workers are paid less than their marginal products of labor (left-side equals zero) when $\gamma_{it}<1$, that is when the firm finds it optimal to incur additional expense to incentivize young workers to retire as they age into the older cohort. We will see below that this coincides with the situation when the marginal product of older workers fall short of their wage. 
+
+Substituting equation (\ref{eq:lambda}) into the first order condition for $L_{O,i,t+1}$, equation (\ref{eq:focLO}), yields,
+
+\beq \label{eq:wMPO} E_t \left\{w_{O,t+1} - p_{t+1} MP_{O,i,t+1} \right\} = - \frac{c'(\gamma_{it})}{\zeta \delta_{t} \left(\eta_{it}^Y L_{Y,it} + \eta_{it}^O L_{O,it}\right)} \eeq
+
+Equation (\ref{eq:wMPO}) demonstrates that firms choose not to influence workers' retirement decisions when older workers are paid exactly their marginal product of labor. When firms must pay older workers more than their marginal product of labor, the left-side of equation (\ref{eq:wMPO}) is positive. In this situation, firms choose to incur costs to incentivize early retirement. Firms set $\gamma_{it}<1$ so that $c'(\gamma_{it})<0$ which causes the right-side to be positive. Similarly, when firms can pay workers less than their marginal product of labor, the right-side of equation (\ref{eq:wMPO}) is negative. In this situation, firms choose to incur costs to encourage continued employment of older workers. Firms set $\gamma_{it}>1$ so that $c'(\gamma_{it})>0$ which causes the right-side of equation to be negative.
+
+\subsection{Model Linearization}
+
+Equations (\ref{eq:wMPO}), (\ref{eq:wMPY}), and (\ref{eq:foclambda}) specify a dynamic system of the three decision variables, $L_{y,it}$, $L_{O,i,t+1}$, and $\gamma_{it}$, in terms of exogenous variables including, output price, $p_t$, wage paid to young workers, $w_{Y,t}$, expected wage to pay older workers, $E_t w_{O,t+1}$, economy-wide factors affecting retirement decisions, $\delta_t$, and age composition of the firm, $\eta_{it}$. The system is also subject to firm-specific and economy wide productivity shocks, $\xi_{it}$ and $z_t$, respectively. The marginal products that appear in equations (\ref{eq:wMPO}) and (\ref{eq:wMPY}) are defined in equations (\ref{eq:MPY}) and (\ref{eq:MPO})
+
+We begin by linearizing equation (\ref{eq:foclambda}) around $\gamma_{it}=1$ and corresponding values for remaining decision and economy-wide values. Evaluating equation (\ref{eq:foclambda}) at such a point yields,
+\beq L_O = \delta \left( \eta^Y L_Y + \eta^O L_O \right). \eeq
+Solving for $L_O$ produces,
+\beq L_O = \left(\frac{\delta \eta^Y}{1 - \delta \eta^O} \right) L_Y. \eeq
+Using these identities while linearizing equation (\ref{eq:foclambda}) yields,
+\beq \label{eq:foclambdalin} \tilde{\gamma}_{it} = \frac{1}{L_O} \tilde{L}_{O,i,t+1} -  \frac{1}{L_O} \tilde{\delta}_t - \left(\frac{1-\delta \eta^O}{\eta^Y}\right) \tilde{\eta}_{it}^Y
+  - \left(\frac{\delta \eta^Y}{L_O}\right) \tilde{L}_{Y,it} - \delta \tilde{\eta}_{it}^O - \delta \eta^O \tilde{L}_{O,it}, \eeq
+  where $\tilde{x}$ denotes the difference between some variable $x$ and a value around which it is being linearized, $L_O>0$ is some given value for the quantity of labor in the old generation around which we are linearizing, $\eta^Y\in(0,1)$ is similarly a given value for $\eta_{it}^Y$, $\eta^O\in(0,1)$ is a given value for $\eta_{it}^O$, and $\delta$ is a given value for the economy-wide retirement factor, $\delta_{t}$.
+  
+Linearizing equation (\ref{eq:wMPY}) around $\gamma_{it}=1$ and given values for remaining decision and economy-wide values, yields,
+\beq \label{eq:wMPYlin} \tilde{w}_{Y,t} - f_Y \tilde{p}_t - p \tilde{MP}_{Y,it} = \left( \frac{\psi \delta}{L_O} \right) \tilde{\gamma}_{it}, \eeq
+where $p>0$ is some given value for the price of the final product and $\psi \equiv c''(1) > 0$ is the second derivative of the cost function to influence workers' retirement decisions evaluating at $\gamma=1$.
+
+Similarly linearizing equation (\ref{eq:wMPO}) yields,
+\beq \label{eq:wMPOlin} E_t \tilde{w}_{O,t+1} - f_o E_t \tilde{p}_{t+1} - p E_t \tilde{MP}_{O,i,t+1} = - \frac{\psi}{\zeta L_O} \tilde{\gamma}_{it}, \eeq
+where $f_o>0$ is some given value for the marginal product of older workers.
+
+
+Linearizing the definitions for the marginal products, (\ref{eq:MPY}) and (\ref{eq:MPO}), around $z_t=1$ and $\xi_{it}=1$, yields,
+\beq \label{eq:mpylin} \tilde{MP}_{Y,it} = f_{YY} \tilde{L}_{Y,it} + f_{YO} \tilde{L}_{O,it} + f_Y \tilde{z}_t + f_y \tilde{\xi}_{it} \eeq
+\beq \label{eq:mpolin-temp} \tilde{MP}_{O,it} = f_{OY} \tilde{L}_{Y,it} + f_{OO} \tilde{L}_{O,it} + f_O \tilde{z}_t + f_O \tilde{\xi}_{it} \eeq
+where $f_Y>0$ and $f_O>0$ are the derivatives of the function, $f()$, with respect to $L_{Y,it}$ and $L_{O,it}$, respectively, evaluated at $L_Y$ and $L_O$. The second derivatives $f_{YY}<0$, $f_{OO}<0$, and $f_{OY}<0$ are similarly defined.
+
+Advancing equation (\ref{eq:mpolin-temp}) one period and taking expectations yields,
+\beq \label{eq:mpolin} E_t \tilde{MP}_{O,it} = f_{OY} E_t \tilde{L}_{Y,i,t+1} + f_{OO} \tilde{L}_{O,i,t+1} \eeq
+
+Substituting equations (\ref{eq:mpylin}) and (\ref{eq:foclambdalin}) into (\ref{eq:wMPYlin}) to eliminate $\tilde{MP}_{Y,it}$ and $\tilde{\gamma}_{it}$, and solving for $\tilde{L}_{Y,it}$, yields,
+\beq \label{eq:lY} \begin{array}{ll}
+  \tilde{L}_{Y,it} \ds = & \left(\ds\frac{\psi \delta^2 \eta^Y}{L_O^2} - p f_{YY}\right)^{-1} \ds \left[ \left(\frac{\psi \delta}{L_O^2}\right) \tilde{L}_{O,i,t+1} -  \left(\frac{\psi \delta^2 \eta^O}{L_O} - p f_{YO}\right) \tilde{L}_{O,it} - \left(\frac{\psi \delta}{L_O^2}\right) \tilde{\delta}_t  \right. \\ [1.5pc]
+    & \ds \left. - \left(\frac{\psi \delta (1-\delta \eta^O)}{L_O \eta^Y}\right) \tilde{\eta}^Y_{it} - \left(\frac{\psi \delta^2}{L_O}\right) \tilde{\eta}^O_{it}  - \tilde{w}_{Y,t} + f_Y \tilde{p}_{t} + p f_Y \tilde{z}_t + p f_Y \tilde{\xi}_{it} \right]
+\end{array} \eeq
+
+Substituting equations (\ref{eq:mpolin}) and (\ref{eq:foclambdalin}) into (\ref{eq:wMPOlin}) to eliminate $E_t \tilde{MP}_{O,i,t+1}$ and $\tilde{\gamma}_{it}$, yields,
+\beq \label{eq:lO} \begin{array}{ll} \ds  \tilde{L}_{O,i,t+1} & = \ds \left( \frac{\psi}{\zeta L_O^2} - p f_{OO} \right)^{-1} \left[ p f_{OY} E_t \tilde{L}_{Y,i,t+1} \right.\\ [1.5pc]
+    & \ds \left. + \left(\frac{\psi \delta \eta^Y}{\zeta L_O^2}\right) \tilde{L}_{Y,it} +  \left(\frac{\psi \delta \eta^O}{\zeta L_O}\right) \tilde{L}_{O,it}  + \left( \frac{\psi}{\zeta L_O^2} \right) \tilde{\delta}_{t} + \left(\frac{\psi(1-\delta \eta^O)}{\zeta \eta^Y L_O}\right) \tilde{\eta}_{it}^Y + \left( \frac{\psi \delta}{\zeta L_O} \right)\tilde{\eta}_{it}^O \right. \\ [1.5pc]
+    & \ds \left. - E_t \tilde{w}_{O,t+1} + f_O E_t \tilde{p}_{t+1} \right]
+  \end{array} \eeq 
+
+Equations (\ref{eq:lY}) and  (\ref{eq:lO}) reveal insight into firms' decisions for their demand for young and old workers, respectively, and how these decisions depend on one another.  The coefficients on $\tilde{\delta}_t$, $\tilde{\eta}^Y_{it}$, and $\tilde{\eta}^O_{it}$ in equation (\ref{eq:lY}) are all negative, and the coefficients on these same variables in equation (\ref{eq:lO}) are all positive. This indicates that an exogenous increase in the economy-wide pensionable age of workers (an increase in $\tilde{\delta}_t$) or an increase in the number of workers within the firm that will be eligible retirement age in the next year (i.e. an increase in $\tilde{\eta}_{it}$ and/or $\tilde{\eta}^O_{it}$) leads to a decrease in demand for younger workers and an increase in planned older workers to retain to to the next period.
+
+\section{Estimation Strategy}
+
+We will estimate reduced forms of equations (\ref{eq:lY}) and  (\ref{eq:lO}). Equation (\ref{eq:lY}) can be rewritten as,
+\beq \label{eq:estlY} L_{Y,it} = \alpha_O + \alpha_1 L_{O,i,t+1} + \alpha_2 L_{O,i,t+1} + \alpha_{3} \delta_{t} + \alpha_4 \eta_{it}^Y + \alpha_5 \eta_{it}^O + \upsilon^Y_{t} + \epsilon^Y_{it}, \eeq
+where $\upsilon^Y_{t}$ captures time- and industry- fixed effects that arise from $\tilde{w}_{Y,t}$, $\tilde{p}_{t}$, and $\tilde{z}_t$; and $\epsilon^Y_{it}$ is an error term that captures stochastic innovations in $\tilde{\xi}_{it}$.  Both the fixed effect and error term also capture any additional to any other industry-, firm-, or time-varying factors that influence real decisions that are not explicitly expressed in our stylized model. Equation (\ref{eq:estlY}) is expressed in terms of levels, rather than deviations from the linearized values, so we include the intercept term, $\alpha_0$.
+
+Below we evaluate some of the predictions of the model with hypothesis tests on some of these coefficients. The previous subsection describes that the model predicts that demand for young workers should decrease in response to an increase in $\delta_t$, $\eta_{it}^Y$, and $\eta_{it}^O$.  In such a case, the signs for $\alpha_3$, $\alpha_4$, and $\alpha_5$, should be negative.
+
+Similarly, equation (\ref{eq:lO}) can be rewritten as,
+\beq \label{eq:estlY} L_{O,i,t+1} = \beta_O + \beta_1 E_t L_{Y,i,t+1} + \beta_2 L_{Y,it} + \beta_{3} L_{O,it} + \beta_{4} \delta_{t} + \beta_5 \eta_{it}^Y + \beta_6 \eta_{it}^O + \upsilon^O_{t} + \epsilon^O_{it}, \eeq
+where $\upsilon^O_{t}$ captures time- and industry- fixed effects that arise from the expectations,  $E_t \tilde{w}_{O,t+1}$ and  $E_t \tilde{p}_{t+1}$; and $\epsilon^O_{it}$ is an error term that captures potential firm-specific innovations inherent in the expectation $E_t \tilde{L}_{Y,i,t+1}$. Again, both the fixed effects and error term capture other factors that influence hiring decisions that are beyond the scope of the stylized model.
+
+Below we evaluate some of the predictions of the model with hypothesis tests on some of these coefficients. The previous subsection describes that the model predicts that quantity of old workers should increase in response to an increase in $\delta_t$, $\eta_{it}^Y$, and $\eta_{it}^O$.  In such a case, the signs for $\beta_3$, $\beta_4$, and $\beta_5$, should be positive.
+
+
+\end{document}
